@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { debounceTime, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-country-input',
@@ -6,13 +7,31 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class CountryInputComponent {
+export class CountryInputComponent implements OnInit {
+
+
+  @Input() placeholder: string = '';
+
+  @Output() onEnter: EventEmitter<string> = new EventEmitter();
+  @Output() onDebounce: EventEmitter<string> = new EventEmitter();
+
+  debouncer: Subject<string> = new Subject();
 
   termino: string = '';
-  buscar() {
 
+  ngOnInit() {
+    this.debouncer
+      .pipe(debounceTime(300))
+      .subscribe(valor => {
+        this.onDebounce.emit(valor)
+      })
   }
 
+  buscar() {
+    this.onEnter.emit(this.termino);
+  }
 
-  constructor() { }
+  teclaPresionada() {
+    this.debouncer.next(this.termino)
+  }
 }

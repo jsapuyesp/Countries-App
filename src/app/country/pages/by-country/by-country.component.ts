@@ -16,17 +16,23 @@ export class ByCountryComponent {
 
   constructor(private paisService: CountryService) { }
 
-  buscar() {
+  buscar(termino: string) {
 
-    this.isError = false
-    console.log(this.termino);
-    this.paisService.buscarPais(this.termino)
+    this.isError = false;
+    this.termino = termino;
+
+    this.paisService.buscarPais(termino)
       .subscribe(countries => {
         this.countries = countries;
       }, err => {
         this.isError = true;
         this.countries = []
       })
+  }
+
+  sugerencias(termino: string) {
+    this.isError = false;
+    //TODO crear sugerencias
   }
 
 }
