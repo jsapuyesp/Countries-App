@@ -28,6 +28,8 @@ export class CountryService {
     return this.http.get<Country[]>(url);
   }
 
-
-
+  buscarRegion(region: string): Observable<Country[]> {
+    const url = `https://restcountries.com/v2/regionalbloc/${region}`;
+    return this.http.get<Country[]>(url);
+  }
 }
