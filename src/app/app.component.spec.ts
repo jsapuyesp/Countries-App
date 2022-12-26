@@ -1,9 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { AppModule } from './app.module';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [AppModule],
       declarations: [
         AppComponent
       ],
@@ -22,10 +24,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('countriesApp');
   });
 
-  it('should render title', () => {
+  it('should have a sidebar', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('countriesApp app is running!');
+    expect(compiled.querySelector('app-sidebar')?.textContent).toBeTruthy();
   });
 });

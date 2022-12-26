@@ -2,29 +2,13 @@
 
 <div class="row">
   <div class="col">
+    <!-- (onDebounce)="sugerencias($event)" Esta linea debe ir en <app-country-input> -->
     <app-country-input
       (onEnter)="buscar($event)"
-      (onDebounce)="sugerencias($event)"
       placeholder="Buscar pais"
     ></app-country-input>
   </div>
 </div>
-
-<!-- <ul class="list-group" *ngIf="mostrarSugerencias">
-  <li
-    class="list-group-item list-group-item-action"
-    *ngFor="let country of sugerenciasList"
-  >
-    <a [routerLink]="['/country', country.cca2]">
-      {{ country.name.common }}
-    </a>
-  </li>
-  <li class="list-group-item list-group-item-action">
-    <a class="nav-link" (click)="buscarSugerido(termino)"
-      >Buscar "{{ termino }}"</a
-    >
-  </li>
-</ul> -->
 
 <hr />
 

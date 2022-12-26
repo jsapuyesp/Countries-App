@@ -9,8 +9,4 @@ export class CountryTableComponent {
 
   @Input() countries: Country[] = []
 
-  constructor() { }
-
-
-
 }
