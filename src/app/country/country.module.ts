@@ -7,9 +7,6 @@ import { RouterModule } from '@angular/router';
 import { CountryTableComponent } from './components/country-table/country-table.component';
 import { CountryInputComponent } from './components/country-input/country-input.component';
 
-
-
-
 @NgModule({
   declarations: [
     ByCountryComponent,
