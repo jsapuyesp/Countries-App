@@ -21,7 +21,7 @@ describe('AppComponent', () => {
   it(`should have as title 'countriesApp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('countriesApp');
+    expect(app.title).toEqual('countriesAppp');
   });
 
   it('should have a sidebar', () => {
