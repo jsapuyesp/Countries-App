@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ByCountryComponent } from './by-country.component';
 import { CountryService } from '../../services/country.service';
 import { AppModule } from '../../../app.module';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 
 
@@ -11,7 +12,7 @@ describe('ByCountry Page', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppModule],
+      imports: [AppModule, HttpClientTestingModule],
       declarations: [
         ByCountryComponent
       ],

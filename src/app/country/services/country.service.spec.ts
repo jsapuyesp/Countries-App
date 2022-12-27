@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { CountryService } from './country.service';
-import { doesNotReject } from 'assert';
 
 describe('Country Service', () => {
   let service: CountryService;
@@ -17,7 +16,7 @@ describe('Country Service', () => {
     expect(service).toBeTruthy();
   })
 
-  it('should be recieve information about Colombia', done => {
+  it('should be recieve information about Colombia', (done) => {
     service.buscarPais('Colombia')
       .subscribe(pais => {
         expect(pais[0].name.common).toBe('Colombia');
@@ -25,7 +24,7 @@ describe('Country Service', () => {
       });
   });
 
-  it('the variable countries should not have elements inside with a bad consult', (done) => {
+  it('should have a 404 error in a bad consult', (done) => {
     service.buscarPais('asfgasg')
       .subscribe(pais => {
       }, err => {
