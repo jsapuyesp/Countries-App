@@ -45,4 +45,10 @@ describe('ByCountry Page', () => {
     expect(byCountryComponent.isError).toEqual(false);
   });
 
+  it('should the variable countries[] empty after a bad request', () => {
+    byCountryComponent.buscar('asdasg');
+    expect(byCountryComponent.termino).toBe('asdasg')
+    expect(byCountryComponent.countries.length).toBe(0);
+  })
+
 });

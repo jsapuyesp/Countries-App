@@ -1,12 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { CountryService } from './country.service';
+import { doesNotReject } from 'assert';
 
 describe('Country Service', () => {
   let service: CountryService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [HttpClientModule]
     });
     service = TestBed.inject(CountryService);
@@ -22,6 +23,16 @@ describe('Country Service', () => {
         expect(pais[0].name.common).toBe('Colombia');
         done();
       });
+  });
+
+  it('the variable countries should not have elements inside with a bad consult', (done) => {
+    service.buscarPais('asfgasg')
+      .subscribe(pais => {
+      }, err => {
+        expect(err.status).toBe(404);
+        done()
+      }
+      );
   });
 
 })
