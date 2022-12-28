@@ -4,7 +4,6 @@ jobs:
   unit-tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Clone the repo
       - uses: actions/checkout@v2
       - name: Use Node.js 16.x
         uses: actions/setup-node@v1
