@@ -40,6 +40,7 @@ module.exports = function (config) {
     autoWatch: false,
     browsers: ['ChromeHeadless'],
     singleRun: true,
-    restartOnFileChange: false
+    restartOnFileChange: false,
+    testResultsFiles: "**/TESTS*.xml"
   });
 };
