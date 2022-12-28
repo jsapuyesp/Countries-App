@@ -38,7 +38,13 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
-    browsers: ['ChromeHeadless'],
+    browsers: ['ChromeHeadless', 'ChromeHeadlessCI'],
+    customLaunchers: {
+      ChromeHeadlessCI: {
+        base: 'ChromeHeadless',
+        flags: '--no-sandbox'
+      }
+    },
     singleRun: true,
     restartOnFileChange: false,
     testResultsFiles: "**/TESTS*.xml"
